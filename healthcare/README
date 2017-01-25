@@ -4,9 +4,9 @@ This project contains files used in the O’Reilly Media Learning Path training 
 •	simSmartCity.R which requires household_power_consumption.csv
 •	simSmartCitystrategy.R which requires iot.businessmodel.csv
 
-The smartcity.businessmodel.csv file
+The healthcare.businessmodel.csv file
 
-The smartcity.businessmodel.csv file was created by a business model simulation algorithm. The algorithm’s design is described in this blog:
+The healthcare.businessmodel.csv file was created by a business model simulation algorithm. The algorithm’s design is described in this blog:
 https://blogs.csc.com/2015/04/29/a-prototype-business-model-simulator/
 
  The following is a description of fields contained in the iot.businessmodel.csv file:

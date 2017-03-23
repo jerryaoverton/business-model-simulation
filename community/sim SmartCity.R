@@ -20,7 +20,7 @@ activities.cor <- cor(activities.sub)
 #start the simulation as a set of random, guaussian variable 
 #correlated according to the matrix
 require(mvtnorm)
-simulation_runs = 100000
+simulation_runs = 1000000 #1 million people
 number_of_features = 8
 feature_means <- rep(0,number_of_features)
 activities.sub.sim <- rmvnorm(mean=feature_means,sig=activities.cor,n=simulation_runs)
@@ -58,21 +58,28 @@ for (i in 1: ncol(activities.sub.sim)){
   )
 }
 
+#compare the distributions of observed activities to simulated activities
 hist(activities.sub[,5])
 hist(activities.sub.sim[,5])
 
+hist(activities.sub[,2])
+hist(activities.sub.sim[,2])
+
+hist(activities.sub[,6])
+hist(activities.sub.sim[,6])
+
 #discretize observed and simulated activities so that we can create association rules
 #for both
-ranges <- c("Low", "Medium", "High")
+ranges <- c("Very Low", "Low", "Medium", "High", "Very High")
 for(i in 1:ncol(activities.sub)){
-  activities.sub[,i] <- cut(activities.sub[,i], breaks=3, labels = ranges)
-  activities.sub.sim[,i] <- cut(activities.sub.sim[,i], breaks=3, labels = ranges)
+  activities.sub[,i] <- cut(activities.sub[,i], breaks=5, labels = ranges)
+  activities.sub.sim[,i] <- cut(activities.sub.sim[,i], breaks=5, labels = ranges)
 }
 
 #find observation association rules that result in high volunteerism
 library(arules)
 rules.obs <- apriori(activities.sub, control = list(verbose=F),
-                 parameter = list(minlen=2, supp=0.0022, conf=0.0022), 
+                 parameter = list(minlen=2, supp=0.001, conf=0.001), 
                  appearance = list(rhs=c("t159999=Medium"), 
                                    default="lhs"))
 inspect(rules.obs)
@@ -93,9 +100,11 @@ plot(rules.obs.pruned, method="graph")
 
 #find simulation association rules that result in high volunteerism
 rules.sim <- apriori(activities.sub.sim, control = list(verbose=F),
-                     parameter = list(minlen=2, supp=0.02, conf=0.22), 
+                     parameter = list(minlen=2, supp=0.001, conf=0.001), 
                      appearance = list(rhs=c("t159999=Medium"), 
                                        default="lhs"))
+inspect(rules.sim)
+
 #find redundant simulation rules
 subset.matrix <- is.subset(rules.sim, rules.sim)
 subset.matrix[lower.tri(subset.matrix, diag=T)] <- NA

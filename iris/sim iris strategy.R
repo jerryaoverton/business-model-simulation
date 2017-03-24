@@ -47,7 +47,7 @@ for(i in 1:ncol(strategy)){
   strategy[,i] <- cut(strategy[,i], breaks=5, labels = ranges)
 }
 
-#write out the hospital strategy for additional analysis
+#write out the strategy for additional analysis
 write.csv(strategy, file="iris.strategy.csv", row.names=FALSE)
 
 #overall is this a winning strategy?
@@ -75,7 +75,3 @@ inspect(strategy.rules.pruned)
 #install.packages("arulesViz")
 library(arulesViz)
 plot(strategy.rules.pruned, method="paracoord", control=list(reorder=TRUE))
-
-
-#write the results so that it can be analyzed for patterns of winning strategies
-write.csv(strategy, file="sim-iris-strategy.csv")

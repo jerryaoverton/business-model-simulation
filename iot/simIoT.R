@@ -29,7 +29,7 @@ iot.cor <- cor(iot)
 #correlated according to the matrix
 #install.packages("mvtnorm")
 require(mvtnorm)
-simulation_runs = 2250000
+simulation_runs = 2250000 #2.25 million
 number_of_features = 8
 feature_means <- rep(0,number_of_features)
 iot.sim <- rmvnorm(mean=feature_means,sig=iot.cor,n=simulation_runs)
@@ -152,7 +152,7 @@ iot.sim.cor
 summary(iot)
 summary(iot.sim)
 
-#create a subset of the oberved and simulated data needed to generate
+#create a subset of the observed and simulated data needed to generate
 #association rules describing power consumption
 cols <- c("Time", "Global_active_power",
           "kitchen_appliances", "laundry_room_appliances", 
@@ -196,10 +196,11 @@ iot.sim$source <- "sim"
 iot.combined <- rbind(iot, iot.sim)
 iot.combined$source <- as.factor(iot.combined$source)
 
-#find association rules that result in low to medium power consumption. 
+#find association rules that result in lower power consumption
+library(arules) 
 iot.combined.rules <- apriori(iot.combined, control = list(verbose=F),
-                              parameter = list(minlen=3, supp=0.1, conf=0.95),
-                              appearance = list(rhs=c("Global_active_power=Very Low", "Global_active_power=Low"),
+                              parameter = list(minlen=3, supp=0.005, conf=0.15),
+                              appearance = list(rhs=c("Global_active_power=Medium"),
                                                 default="lhs"))
 inspect(iot.combined.rules)
 
@@ -217,27 +218,6 @@ iot.combined.rules.pruned <- iot.combined.rules.sorted[!redundant]
 inspect(iot.combined.rules.pruned)
 
 #visualize simulation rules
-plot(iot.combined.rules.pruned, method="grouped")
-
-#....
-iot.rules <- apriori(iot, control = list(verbose=F),
-                     parameter = list(minlen=3, supp=0.1, conf=0.95),
-                     appearance = list(rhs=c("Global_active_power=Very Low", "Global_active_power=Low"),
-                                       default="lhs"))
-inspect(iot.rules)
-
-#sort the rules by lift
-iot.rules.sorted <- sort(iot.combined.rules, by="lift")
-
-#find redundant simulation rules
-subset.matrix <- is.subset(iot.rules.sorted, iot.rules.sorted)
-subset.matrix[lower.tri(subset.matrix, diag=T)] <- NA
-redundant <- colSums(subset.matrix, na.rm=T) >= 1
-which(redundant)
-
-#remove redundant simulation rules
-iot.rules.pruned <- iot.rules.sorted[!redundant]
-inspect(iot.rules.pruned)
-
-#visualize simulation rules
-plot(iot.rules.pruned, method="grouped")
+#install.packages("arulesViz")
+library(arulesViz)
+plot(iot.combined.rules.pruned, method="paracoord", control=list(reorder=TRUE))

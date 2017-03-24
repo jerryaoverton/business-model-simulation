@@ -30,7 +30,7 @@ complaints.cor <- cor(complaints)
 #start the simulation as a set of random, guaussian variable 
 #correlated according to the matrix
 require(mvtnorm)
-simulation_runs = 3000
+simulation_runs = 30000 #30k new complaints
 number_of_features = 14
 feature_means <- rep(0,number_of_features)
 complaints.sim <- rmvnorm(mean=feature_means,sig=complaints.cor,n=simulation_runs)
@@ -162,7 +162,7 @@ col_headings <- paste(name,number, sep = "-")
 names(complaints.sim.agg) <- col_headings
 
 #combine and display both observed and simulated complaints
-install.packages("radarchart")
+#install.packages("radarchart")
 library(radarchart)
 complaints.tot <- cbind(complaints.agg, complaints.sim.agg)
 chartJSRadar(complaints.tot, maxScale = 170, labs = labels, showToolTipLabel=TRUE)

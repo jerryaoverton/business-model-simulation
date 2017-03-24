@@ -73,9 +73,7 @@ inspect(strategy.lose.rules.pruned)
 library(arulesViz)
 plot(strategy.lose.rules.pruned, method="paracoord")
 
-#find winning strategies when the competitor potential consumers and advantage in
-#potential consumers is high
-#strategy.scenario1 <- strategy[strategy$`competitor potential loan customers` == "4-High",]
+#find winning strategies when the competitor advantage in potential consumers is high
 strategy.scenario1 <- strategy[strategy$`competitor advantage in potential loan customers` == "4-High",]
 
 #given the scenario, find the strategies that lead to a win

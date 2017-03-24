@@ -85,8 +85,15 @@ for (i in 1: ncol(xp.sim)){
   )
 }
 
+#compare the distributions of the observed healthcare experiences to the simulations
 hist(xp$Doctor.Communication)
 hist(xp.sim$Doctor.Communication)
+
+hist(xp$Nurse.Communication)
+hist(xp.sim$Nurse.Communication)
+
+hist(xp$Hospital.Cleanliness.and.Quietness)
+hist(xp.sim$Hospital.Cleanliness.and.Quietness)
 
 #discretize observed and simulated activities so that we can create association rules
 #for both
@@ -99,7 +106,8 @@ for(i in 1:ncol(xp)){
 #write the simulations to file for further analysis
 write.csv(xp.sim, file="healthcare.sim.csv", row.names=FALSE)
 
-#build a decision tree and use it to predict
+#build a decision tree and use it to predict the factors that lead to positive experiences in both
+#the observations and in simulation
 library(party)
 formula <- Overall.Rating ~ .
 xp.tree <- ctree(formula, controls = ctree_control(maxdepth = 3), data=xp)

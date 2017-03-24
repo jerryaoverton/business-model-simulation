@@ -1,17 +1,15 @@
-# H1
-## H2
-### H3
-
-Overview
+# Overview
 
 This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
 •	simSmartCity.R which requires household_power_consumption.csv
 •	simSmartCitystrategy.R which requires iot.businessmodel.csv
 
-The smartcity.businessmodel.csv file
+# The smartcity.businessmodel.csv file
 
 The smartcity.businessmodel.csv file was created by a business model simulation algorithm. The algorithm’s design is described in this blog:
 https://blogs.csc.com/2015/04/29/a-prototype-business-model-simulator/
+
+# The iot.businessmodel.csv file
 
 The following is a description of fields contained in the iot.businessmodel.csv file:
 
@@ -25,7 +23,7 @@ The following is a description of fields contained in the iot.businessmodel.csv 
 •	pro1, pro2: days required to make a working prototype for the competitor’s business model and our business model innovation respectively. Range: 14-1000
 •	ikp1, ikp2: improvement rate of key partners for the competitor’s business model and our business model innovation respectively. Range: 0.1-0.9
 
-Special modifications to the business model
+# Special modifications to the business model
 
 The strategy is modeled after the open business model. the idea is to build brand taping into social networks interested in public service. This strategy increases both the reach of the brand and the network effect of the consumers. We model the strategy with the assumption of higher potential consumers and high coefficients of imitation. We selected on those records where pcn2 > 65 and imt2 > 0.75
 

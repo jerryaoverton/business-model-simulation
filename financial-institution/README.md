@@ -1,8 +1,14 @@
-Overview
+# Simulating Companies. How to Build a Better Financial Institution
 
-This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
-•	simFinancialInstitute.R which requires household_power_consumption.csv
-•	simFinancialInstitutestrategy.R which requires iot.businessmodel.csv
+## Overview
+
+What if a financial institution were willing to make comprehensive changes to the services they provide to customers? Could a financial institution improve the customer's experience by selecting the right combination of financial services? This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
+
+1.	simFinancialInstitute.R which requires household_power_consumption.csv
+2. simFinancialInstitutestrategy.R which requires iot.businessmodel.csv
+
+We start by collecting real observations of customer financial service experiences. We search for opportunities to improve the overall customer experience. We use real observations to generate simulated financial service experiences. We test the plausibility of the simulations by comparing them to real observations. We search the simulated customer experiences for interesting patterns of customer satisfaction. We look for clusters of institutions that have found some unusual, but significant way of improving a customer's experience. After finding an innovative way of improving a customer's experience, we search through business model simulations for an equally innovative way to make the idea profitable.
+
 
 The financial.institute.businessmodel.csv file
 

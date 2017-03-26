@@ -3,10 +3,12 @@
 ## Overview
 Can a corporation improve a community? Are there business models that could act as the catalyst for safer, heatlthier ways of living? This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
 
-1. simSmartCity.R which requires household_power_consumption.csv
-2. simSmartCitystrategy.R which requires iot.businessmodel.csv
+1. `simSmartCity.R` which requires `atussum_2015.csv`
+2. `simSmartCitystrategy.R` which requires `smartcity.businessmodel.csv`
 
-We start by collecting real observations of community experiences. We search for opportunities to improve the key aspects of the community. We use real observations to generate simulated communities. We test the plausibility of the simulations by comparing them to real observations. We search the simulated community experiences for interesting patterns of safer, healthier living. We look for clusters of  communities where the people have found some unusual, but significant ways of improving their lives. After finding an innovative way of improving a community, we search through business model simulations for an equally innovative way to make the idea profitable.
+Start by running `simSmartCity.R`. We start by collecting real observations of community experiences. We search for opportunities to improve the key aspects of the community. We use real observations to generate simulated communities. We test the plausibility of the simulations by comparing them to real observations. We search the simulated community experiences for interesting patterns of safer, healthier living. We look for clusters of  communities where the people have found some unusual, but significant ways of improving their lives. 
+
+Next, run `simSmartCitystrategy.R`. After finding an innovative way of improving a community, we search through business model simulations for an equally innovative way to make the idea profitable.
 
 
 ## The smartcity.businessmodel.csv file

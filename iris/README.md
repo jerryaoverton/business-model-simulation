@@ -1,8 +1,10 @@
-Overview
+# Simulating Plants: Creating New Virtual Breeds of Iris
 
-This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
-•	simIris.R which requires household_power_consumption.csv
-•	simIrisstrategy.R which requires iris.businessmodel.csv
+## Overview
+Can we create a business by breeding new species of Iris flowers? Can we take species of Iris that we've already observed, simulate cross-breeding of those plants, and create a business model based on the resulting flowers? This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
+
+1.	`sim Iris.R` which uses the Iris data set included in R
+2.	`sim iris strategy.R` which requires iris.businessmodel.csv
 
 The iris.businessmodel.csv file
 

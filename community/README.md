@@ -1,15 +1,20 @@
-# Overview
+# Simulating Smart Cities. How to Build A Better Community
 
-This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
-•	simSmartCity.R which requires household_power_consumption.csv
-•	simSmartCitystrategy.R which requires iot.businessmodel.csv
+## Overview
+Can a corporation improve a community? Are there business models that could act as the catalyst for safer, heatlthier ways of living? This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
 
-# The smartcity.businessmodel.csv file
+1. simSmartCity.R which requires household_power_consumption.csv
+2. simSmartCitystrategy.R which requires iot.businessmodel.csv
+
+We start by collecting real observations of community experiences. We search for opportunities to improve the key aspects of the community. We use real observations to generate simulated communities. We test the plausibility of the simulations by comparing them to real observations. We search the simulated community experiences for interesting patterns of safer, healthier living. We look for clusters of  communities where the people have found some unusual, but significant ways of improving their lives. After finding an innovative way of improving a community, we search through business model simulations for an equally innovative way to make the idea profitable.
+
+
+## The smartcity.businessmodel.csv file
 
 The smartcity.businessmodel.csv file was created by a business model simulation algorithm. The algorithm’s design is described in this blog:
 https://blogs.csc.com/2015/04/29/a-prototype-business-model-simulator/
 
-# The iot.businessmodel.csv file
+## The iot.businessmodel.csv file
 
 The following is a description of fields contained in the iot.businessmodel.csv file:
 

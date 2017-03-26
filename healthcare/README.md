@@ -3,12 +3,10 @@
 ## Overview
 What if a hospital were willing to make comprehensive changes in how it treats and interacts with patients? Could a hospital improve the quality of patient care by changing its operations? This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
 
-1. `simSmartCity.R` which requires `atussum_2015.csv`
-2. `simSmartCitystrategy.R` which requires `smartcity.businessmodel.csv`
+1. `sim Healthcare.R` which requires `data.health.csv`
+2. `sim Hospital strategy.R` which requires `hospital.businessmodel.csv`
 
-This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
-•	simSmartCity.R which requires household_power_consumption.csv
-•	simSmartCitystrategy.R which requires iot.businessmodel.csv
+Start by running `sim Healthcare.R`. 
 
 The healthcare.businessmodel.csv file
 

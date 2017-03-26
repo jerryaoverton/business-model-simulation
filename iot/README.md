@@ -1,4 +1,4 @@
-# Simulating IoT. How to Build Greener Homes
+# Simulating IoT: How to Build Greener Homes
 
 ## Overview
 
@@ -22,21 +22,27 @@ We also assume that the platform is designed specifically to optimize the energy
 models <- read.csv("sim1.csv")
 
 #select a subset of the models that corresponds to the strategy of
-#offer student loan payment as a corporate benefit
+#building a platform for enabling smarter, more efficient household appliances
 
-#the strategy is modeled after the freemium business model. the strategy
-#is to subsidize the re-payment of a student load by offering lower payments
-#for students that work within an employer network. paying a student loan becomes
-#more closely related to long-term employment. we model the strategy with
-#the assumption that we will enjoy a higher elasticity of demand.
+#the strategy is modeled after the multi-sided platform pattern. the idea
+#is to connect home automation customers with utility customers. the biggest
+#benefit of the multi-sided platform model is the network effect that comes
+#from bringing together new customer segments. we model our strategy based on
+#the assumption of a high network effect
+businessmodel <- models[models$imt2 > .7,]
 
-businessmodel <- models[models$ped2 > 1.4,]
+#we also assume that the platform is designed specifically to optimize the
+#energy consumption of the appliances. this allows us to position the application
+#as an energy product which increases the application's elasticity of demand.
+#that is, because we are optimizing something as important as energy consumption
+#we assume that consumers will be tolerant to a higher degree of price increase
+businessmodel <- businessmodel[businessmodel$ped2 > 1.4,]
 
 #remove the unnecessary id column
 businessmodel$X <- NULL
 
 #store the strategy file for subsequent analysis
-write.csv(businessmodel, file="financial.institute.businessmodel.csv", row.names=FALSE)
+write.csv(businessmodel, file="iot.businessmodel.csv", row.names=FALSE)
 ```
 
 The following is a description of fields contained in the `financial.institute.businessmodel.csv` file:

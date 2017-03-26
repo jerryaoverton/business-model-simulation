@@ -1,28 +1,54 @@
-Overview
+# Simulating IoT. How to Build Greener Homes
 
-This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
-•	simIoT.R which requires household_power_consumption.csv
-•	simIoTstrategy.R which requires iot.businessmodel.csv
+## Overview
 
-The iot.businessmodel.csv file
+What if household appliances could communicate and coordinate? Could they collectively behave in a way that reduces household electricity use? This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two *R* scripts:
 
-The iot.businessmodel.csv file was created by a business model simulation algorithm. The algorithm’s design is described in this blog:
-https://blogs.csc.com/2015/04/29/a-prototype-business-model-simulator/
+1. `simIoT.R` which requires `household_power_consumption.csv`
+2. `simIoTstrategy.R` which requires `iot.businessmodel.csv`
 
-The following is a description of fields contained in the iot.businessmodel.csv file:
+Start by running `simIoT.R`. We start by collecting real observations of home energy consumption by household appliance. We search for opportunities to lower overall engergy consumption. We use real observations to generate simulated households and their energy consumption. We test the plausibility of the simulations by comparing them to real observations. We search the simulated households for interesting patterns of efficient energy use. We look for clusters of households that have found some unusual, but significant way of reducing energy use.
 
-•	cns1, cns2: current consumers (millions) for the competitor’s business model and our business model innovation respectively. Range: 0-100
-•	pcn1, pcn2: potential consumers (millions) for the competitor’s business model and our business model innovation respectively. Range: 0-100
-•	inv1, inv2: coefficient of innovation for the competitor’s business model and our business model innovation respectively. Range: 0.01-0.10
-•	imt1, imt2: coefficient of imitation for the competitor’s business model and our business model innovation respectively. Range: 0.1-1.0
-•	ped1, ped2: price elasticity of demand for the competitor’s business model and our business model innovation respectively. Range: 0.5-1.5
-•	oe1, oe2: output elasticity for the competitor’s business model and our business model innovation respectively. Range: 0-1
-•	cpex1, cpex2: initial capital investment (in $millions) for the competitor’s business model and our business model innovation respectively. Range: 0-100
-•	pro1, pro2: days required to make a working prototype for the competitor’s business model and our business model innovation respectively. Range: 14-1000
-•	ikp1, ikp2: improvement rate of key partners for the competitor’s business model and our business model innovation respectively. Range: 0.1-0.9
+Next, run `simIoTstrategy.R`. After finding an innovative way of reducing engergy, we search through business model simulations for an equally innovative way to make the idea profitable.
 
 
-Special modifications to the business model
+## Simulating the Business Model
+The `iot.businessmodel.csv` file was created based on a business model simulation algorithm. The algorithm’s design is described in the [A Prototype Business Model Simulator](https://blogs.csc.com/2015/04/29/a-prototype-business-model-simulator/) blog. The business model is patterned after the *multi-sided platform pattern*. The idea is to connect home automation customers with utility customers. The biggest benefit of the multi-sided platform model is the network effect that comes from bringing together new customer segments. We model our strategy based on the assumption of a high network effect. We selected on those records where `imt2 > 0.7`.
 
-The IoT strategy is modeled after the multi-sided platform pattern. The idea is to connect home automation customers with utility customers. The biggest benefit of the multi-sided platform model is the network effect that comes from bringing together new customer segments. We model our strategy based on the assumption of a high network effect. We selected on those records where imt2 > 0.7.
-We also assume that the platform is designed specifically to optimize the energy consumption of the appliances. This allows us to position the application as an energy product which increases the application's elasticity of demand. That is, because we are optimizing something as important as energy consumption we assume that consumers will be tolerant to more price increase. We selected on those records where ped2 > 1.4.
+We also assume that the platform is designed specifically to optimize the energy consumption of the appliances. This allows us to position the application as an energy product which increases the application's elasticity of demand. That is, because we are optimizing something as important as energy consumption we assume that consumers will be tolerant to more price increase. We selected on those records where `ped2 > 1.4`. The `iot.businessmodel.csv` file was generated by the following code:
+
+```R
+#read the universe of simulated business models
+models <- read.csv("sim1.csv")
+
+#select a subset of the models that corresponds to the strategy of
+#offer student loan payment as a corporate benefit
+
+#the strategy is modeled after the freemium business model. the strategy
+#is to subsidize the re-payment of a student load by offering lower payments
+#for students that work within an employer network. paying a student loan becomes
+#more closely related to long-term employment. we model the strategy with
+#the assumption that we will enjoy a higher elasticity of demand.
+
+businessmodel <- models[models$ped2 > 1.4,]
+
+#remove the unnecessary id column
+businessmodel$X <- NULL
+
+#store the strategy file for subsequent analysis
+write.csv(businessmodel, file="financial.institute.businessmodel.csv", row.names=FALSE)
+```
+
+The following is a description of fields contained in the `financial.institute.businessmodel.csv` file:
+
+Field | Description | Range
+--- | --- | ---
+cns1, cns2 | current consumers (millions) for the competitor’s business model and our business model innovation respectively | 0-100
+pcn1, pcn2 | potential consumers (millions) for the competitor’s business model and our business model innovation respectively | 0-100
+inv1, inv2 | coefficient of innovation for the competitor’s business model and our business model innovation respectively | 0.01-0.10
+imt1, imt2 | coefficient of imitation for the competitor’s business model and our business model innovation respectively | 0.1-1.0
+ped1, ped2 | price elasticity of demand for the competitor’s business model and our business model innovation respectively | 0.5-1.5
+oe1, oe2 | output elasticity for the competitor’s business model and our business model innovation respectively | 0-1
+cpex1, cpex2 | initial capital investment (in $millions) for the competitor’s business model and our business model innovation respectively |: 0-100
+pro1, pro2 | days required to make a working prototype for the competitor’s business model and our business model innovation respectively | 14-1000
+ikp1, ikp2 | improvement rate of key partners for the competitor’s business model and our business model innovation respectively | 0.1-0.9

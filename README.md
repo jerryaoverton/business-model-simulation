@@ -16,3 +16,6 @@ The `business-model-simulation/healthcare/` section contains files needed to sim
 
 ## Simulating IoT: How to Build Greener Homes
 The `business-model-simulation/iot/` section contains files needed to simulate smart interactions among networks of things. By taking data about the power consumption of household devices, we simulated conversations between household appliances. We used those simulations to discover ways for household devices to cooperate and lower energy consumption on behalf of homeowners.
+
+## Simulating Biology: Creating New Virtual Breeds of Iris
+The `business-model-simulation/iris/` section contains files needed to simulate new breeds of Iris species. By taking observations of existing plant species, we simulated the breeding of new species. We used those simulations to discover new possible species and new ways to profit from selling these new plants.

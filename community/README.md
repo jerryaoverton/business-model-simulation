@@ -17,6 +17,10 @@ The `smartcity.businessmodel.csv` file was created by a business model simulatio
 
 The following is a description of fields contained in the `smartcity.businessmodel.csv` file:
 
+Field | Description | Range
+cns1, cns2 | current consumers (millions) for the competitor’s business model and our business model innovation respectively | 0-100
+
+
 -	cns1, cns2: current consumers (millions) for the competitor’s business model and our business model innovation respectively. Range: 0-100
 -	pcn1, pcn2: potential consumers (millions) for the competitor’s business model and our business model innovation respectively. Range: 0-100
 -	inv1, inv2: coefficient of innovation for the competitor’s business model and our business model innovation respectively. Range: 0.01-0.10

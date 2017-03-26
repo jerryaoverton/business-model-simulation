@@ -11,8 +11,8 @@ The `business-model-simulation/community/` section contains files needed to simu
 ## Simulating Companies: How to Build a Better Financial Institution
 The `business-model-simulation/financial-institution/` section contains files needed to simulate people's interactions with companies. By taking data about the services that a company provides and their customer's reaction, we simulated new company-customer interactions. We used those simulations to discover new ways for companies to make its customers happy.
 
-## Heading 1
-We can simulate interactions among people. By taking data about the interactions between healthcare providers and patients, we can simulate new patient experiences. We can use those simulated experiences to discover new ways hospitals can improve patient care.
+## Simulating People: How to Build Better Healthcare
+The `business-model-simulation/healthcare/` section contains files needed to simulate interactions among people. By taking data about the interactions between healthcare providers and patients, we simulated new patient experiences. We used those simulated experiences to discover new ways hospitals can improve patient care.
 
 ## Heading 2
 We can simulate smart interactions among networks of things. By taking data about the power consumption of household devices, we can simulate a conversation between your refrigerator and water heater, your water heater and television, your television and toaster. We can use those simulations to discover ways for household devices to cooperate and lower energy consumption on behalf of homeowners.

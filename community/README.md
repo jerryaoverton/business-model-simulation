@@ -1,4 +1,4 @@
-# Simulating Smart Cities. How to Build A Better Community
+# Simulating Smart Cities: How to Build A Better Community
 
 ## Overview
 Can a corporation improve a community? Are there business models that could act as the catalyst for safer, heatlthier ways of living? This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:

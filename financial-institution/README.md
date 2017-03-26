@@ -1,4 +1,4 @@
-# Simulating Companies. How to Build a Better Financial Institution
+# Simulating Companies: How to Build a Better Financial Institution
 
 ## Overview
 
@@ -21,25 +21,24 @@ The financial.institute.businessmodel.csv file. The business model is patterned 
 models <- read.csv("sim1.csv")
 
 #select a subset of the models that corresponds to the strategy of
-#using existing social networks to accelareate the creation of a brand
+#offer student loan payment as a corporate benefit
 
-#the strategy is modeled after the open business model. the idea is to
-#build brand taping into social networks interested in public service.
-#this strategy increases both the reach of the brand and the network
-#effect of the consumers. We model the strategy with the assumption of
-#higher potential consumers and high coefficients of imitation
+#the strategy is modeled after the freemium business model. the strategy
+#is to subsidize the re-payment of a student load by offering lower payments
+#for students that work within an employer network. paying a student loan becomes
+#more closely related to long-term employment. we model the strategy with
+#the assumption that we will enjoy a higher elasticity of demand.
 
-businessmodel <- models[models$pcn2 > 65,]
-businessmodel <- businessmodel[businessmodel$imt2 > .75,]
+businessmodel <- models[models$ped2 > 1.4,]
 
 #remove the unnecessary id column
 businessmodel$X <- NULL
 
 #store the strategy file for subsequent analysis
-write.csv(businessmodel, file="smartcity.businessmodel.csv", row.names=FALSE)
+write.csv(businessmodel, file="financial.institute.businessmodel.csv", row.names=FALSE)
 ```
 
-The following is a description of fields contained in the `smartcity.businessmodel.csv` file:
+The following is a description of fields contained in the `financial.institute.businessmodel.csv` file:
 
 Field | Description | Range
 --- | --- | ---

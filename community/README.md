@@ -13,6 +13,8 @@ Next, run `simSmartCitystrategy.R`. After finding an innovative way of improving
 
 ## Simulating the Business Model
 
+[I'm an inline-style link](https://www.google.com)
+
 The smartcity.businessmodel.csv file was created by a business model simulation algorithm. The algorithm’s design is described in the [A Prototype Business Model Simulator] (https://blogs.csc.com/2015/04/29/a-prototype-business-model-simulator/) blog.
 
 The following is a description of fields contained in the iot.businessmodel.csv file:

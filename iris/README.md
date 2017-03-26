@@ -1,4 +1,4 @@
-# Simulating Plants: Creating New Virtual Breeds of Iris
+# Simulating Biology: Creating New Virtual Breeds of Iris
 
 ## Overview
 Can we create a business by breeding new species of Iris flowers? Can we take species of Iris that we've already observed, simulate cross-breeding of those plants, and create a business model based on the resulting flowers? This project contains files used in the O’Reilly Media Learning Path training video entitled Using Data Science for Business Model Innovation. In the project are two R scripts:
@@ -19,25 +19,22 @@ The `iris.businessmodel.csv` file was created based on a business model simulati
 models <- read.csv("sim1.csv")
 
 #select a subset of the models that corresponds to the strategy of
-#using existing social networks to accelareate the creation of a brand
+#creating and selling novel iris breeds
 
-#the strategy is modeled after the open business model. the idea is to
-#build brand taping into social networks interested in public service.
-#this strategy increases both the reach of the brand and the network
-#effect of the consumers. We model the strategy with the assumption of
-#higher potential consumers and high coefficients of imitation
-
-businessmodel <- models[models$pcn2 > 65,]
-businessmodel <- businessmodel[businessmodel$imt2 > .75,]
+#the strategy is to use the novelty of the new iris breeds to attract new
+#adopters through advertising and word of mouth. we model the strategy
+#with the assumption of a high coefficient of innovation and imitation
+businessmodel <- models[models$inv2 > .05,]
+businessmodel <- businessmodel[businessmodel$imt2 > .5,]
 
 #remove the unnecessary id column
 businessmodel$X <- NULL
 
 #store the strategy file for subsequent analysis
-write.csv(businessmodel, file="smartcity.businessmodel.csv", row.names=FALSE)
+write.csv(businessmodel, file="iris.businessmodel.csv", row.names=FALSE)
 ```
 
-The following is a description of fields contained in the `smartcity.businessmodel.csv` file:
+The following is a description of fields contained in the `iris.businessmodel.csv` file:
 
 Field | Description | Range
 --- | --- | ---

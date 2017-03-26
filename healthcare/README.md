@@ -37,7 +37,7 @@ businessmodel$X <- NULL
 write.csv(businessmodel, file="hospital.businessmodel.csv", row.names=FALSE)
 ```
 
-The following is a description of fields contained in the `financial.institute.businessmodel.csv` file:
+The following is a description of fields contained in the `hospital.businessmodel.csv` file:
 
 Field | Description | Range
 --- | --- | ---

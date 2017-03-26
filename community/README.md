@@ -11,12 +11,9 @@ Start by running `simSmartCity.R`. We start by collecting real observations of c
 Next, run `simSmartCitystrategy.R`. After finding an innovative way of improving a community, we search through business model simulations for an equally innovative way to make the idea profitable.
 
 
-## The smartcity.businessmodel.csv file
+## Simulating the Business Model
 
-The smartcity.businessmodel.csv file was created by a business model simulation algorithm. The algorithm’s design is described in this blog:
-https://blogs.csc.com/2015/04/29/a-prototype-business-model-simulator/
-
-## The iot.businessmodel.csv file
+The smartcity.businessmodel.csv file was created by a business model simulation algorithm. The algorithm’s design is described in the [A Prototype Business Model Simulator] (https://blogs.csc.com/2015/04/29/a-prototype-business-model-simulator/) blog.
 
 The following is a description of fields contained in the iot.businessmodel.csv file:
 
